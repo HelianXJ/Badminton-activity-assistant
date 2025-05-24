@@ -17,6 +17,14 @@
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-navbar": "tdesign-miniprogram/navbar/navbar"
   },
+  "permission": {
+    "scope.userInfo": {
+      "desc": "用于获取用户信息实现登录功能"
+    }
+  },
+  "useExtendedLib": {
+    "weui": true
+  },
   "lazyCodeLoading": "requiredComponents",
   "rendererOptions": {
     "skyline": {

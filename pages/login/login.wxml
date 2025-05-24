@@ -12,7 +12,8 @@
   <view class="button-section">
     <button 
       class="login-button {{isLoading ? 'loading' : ''}}"
-      bindtap="getUserProfile"
+      open-type="getUserInfo"
+      bindgetuserinfo="handleUserInfo"
       disabled="{{isLoading}}"
     >
       <text>微信一键登录</text>

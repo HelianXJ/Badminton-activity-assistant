@@ -3,5 +3,6 @@
   "projectname": "badminton",
   "setting": {
     "compileHotReLoad": true
-  }
+  },
+  "libVersion": "3.8.5"
 }

@@ -28,17 +28,22 @@ Page({
     }
   },
 
-  async getUserProfile(e) {
+  async handleUserInfo(e) {
     if (this.data.isLoading) return;
+    
+    if (!e.detail.userInfo) {
+      wx.showToast({
+        title: '您拒绝了授权',
+        icon: 'none'
+      });
+      return;
+    }
     
     this.setData({ isLoading: true });
     
     try {
-      // 获取用户信息
-      const { userInfo } = await wx.getUserProfile({
-        desc: '用于完善会员资料' // 声明获取用户个人信息后的用途
-      });
-      
+      // 从事件对象获取用户信息
+      const { userInfo } = e.detail;
       await this.handleLogin(userInfo);
     } catch (error) {
       console.error('获取用户信息失败:', error);
