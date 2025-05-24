@@ -1,0 +1,51 @@
+<view class="container">
+  <view class="tabs">
+    <view 
+      wx:for="{{tabs}}" 
+      wx:key="index"
+      class="tab-item {{activeTab === index ? 'active' : ''}}"
+      bindtap="onTabChange"
+      data-index="{{index}}"
+    >
+      {{item}}
+    </view>
+  </view>
+
+  <view class="content">
+    <view wx:if="{{activeTab === 0}}" class="agreement">
+      <view class="title">羽毛球约球小程序用户协议</view>
+      <view class="section">
+        <view class="section-title">一、服务条款的确认和接纳</view>
+        <view class="section-content">
+          1. 羽毛球约球小程序（以下简称"本小程序"）的各项电子服务的所有权和运作权归开发者所有。
+          2. 用户必须完全同意所有服务条款并完成注册程序，才能成为本小程序的正式用户。
+        </view>
+      </view>
+      <view class="section">
+        <view class="section-title">二、服务内容</view>
+        <view class="section-content">
+          1. 本小程序提供羽毛球约球相关的信息发布、场地预约、球友匹配等服务。
+          2. 本小程序保留随时变更、中断或终止部分或全部网络服务的权利。
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{activeTab === 1}}" class="privacy">
+      <view class="title">羽毛球约球小程序隐私政策</view>
+      <view class="section">
+        <view class="section-title">一、我们收集的信息</view>
+        <view class="section-content">
+          1. 为提供更好的服务，我们会收集您的微信昵称、头像等基本信息。
+          2. 我们会记录您使用小程序的行为数据，包括但不限于浏览记录、预约记录等。
+        </view>
+      </view>
+      <view class="section">
+        <view class="section-title">二、信息的使用</view>
+        <view class="section-content">
+          1. 我们收集的信息将用于为您提供更好的服务体验。
+          2. 我们不会将您的个人信息出售或出租给第三方。
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

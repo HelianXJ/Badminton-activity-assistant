@@ -1,0 +1,52 @@
+<!-- pages/index/index.wxml -->
+<view class="container">
+  <t-navbar title="羽毛球活动" />
+  
+  <view class="header">
+    <view class="title">活动列表</view>
+    <t-button theme="primary" size="small" icon="add" bind:tap="navigateToCreate">创建活动</t-button>
+  </view>
+  
+  <view class="activity-list">
+    <block wx:if="{{activities.length > 0}}">
+      <t-cell-group>
+        <block wx:for="{{activities}}" wx:key="id">
+          <t-cell
+            hover
+            title="{{item.title}}"
+            description="{{item.date}} {{item.time}}"
+            arrow
+            note="{{item.location}}"
+            data-id="{{item.id}}"
+            bind:tap="navigateToDetail"
+          >
+            <view slot="left-icon" class="activity-icon">
+              <t-icon name="sports" size="48rpx" />
+            </view>
+            <view slot="note" class="activity-info">
+              <view class="location">{{item.location}}</view>
+              <view class="participants">
+                参与人数: {{item.currentParticipants}}/{{item.maxParticipants}}
+              </view>
+            </view>
+            <view slot="right-icon">
+              <t-tag 
+                class="status-tag" 
+                theme="{{getTagType(item.status)}}" 
+                variant="light"
+              >
+                {{getStatusText(item.status)}}
+              </t-tag>
+            </view>
+          </t-cell>
+        </block>
+      </t-cell-group>
+    </block>
+    
+    <t-empty wx:else icon="info-circle-filled" description="暂无活动，快来创建一个吧！" />
+  </view>
+  
+  <view class="footer">
+    <t-footer text="羽毛球活动报名系统" />
+  </view>
+</view>

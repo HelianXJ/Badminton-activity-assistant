@@ -1,0 +1,74 @@
+/* pages/index/index.wxss */
+.container {
+  min-height: 100vh;
+  background-color: #f6f6f6;
+  padding-bottom: 40rpx;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 32rpx;
+  background-color: #fff;
+  margin-bottom: 24rpx;
+}
+
+.header .title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.activity-list {
+  margin: 0 24rpx;
+}
+
+.activity-icon {
+  margin-right: 16rpx;
+  color: #0052d9;
+}
+
+.activity-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.location {
+  font-size: 24rpx;
+  color: #666666;
+}
+
+.participants {
+  font-size: 24rpx;
+  color: #666666;
+}
+
+.status-tag {
+  margin-left: 16rpx;
+}
+
+.footer {
+  margin-top: 48rpx;
+}
+
+/* 自定义单元格样式 */
+.t-cell {
+  margin-bottom: 12rpx;
+  border-radius: 12rpx;
+  background-color: #ffffff;
+}
+
+.t-cell__title {
+  font-weight: bold;
+}
+
+.t-cell__description {
+  color: #666666;
+}
+
+/* 空状态样式 */
+.t-empty {
+  margin-top: 120rpx;
+}

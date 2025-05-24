@@ -1,0 +1,28 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/create/create",
+    "pages/login/login",
+    "pages/privacy/privacy"
+  ],
+  "window": {
+    "navigationBarTitleText": "羽毛球活动报名",
+    "navigationStyle": "custom",
+    "backgroundColor": "#f6f6f6",
+    "backgroundTextStyle": "light"
+  },
+  "usingComponents": {
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-navbar": "tdesign-miniprogram/navbar/navbar"
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "defaultContentBox": true
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

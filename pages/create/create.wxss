@@ -1,0 +1,64 @@
+/* pages/create/create.wxss */
+.container {
+  min-height: 100vh;
+  background-color: #f6f6f6;
+  padding-bottom: 40rpx;
+}
+
+.form-container {
+  padding: 24rpx;
+}
+
+.description-section {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-top: 24rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, 0.9);
+  margin-bottom: 16rpx;
+}
+
+.required {
+  color: #e34d59;
+  margin-left: 4rpx;
+}
+
+.submit-section {
+  margin-top: 48rpx;
+  padding: 0 24rpx;
+}
+
+.placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* 自定义单元格样式 */
+.t-cell {
+  margin-bottom: 2rpx;
+  background-color: #ffffff;
+}
+
+.t-cell__title {
+  font-weight: bold;
+}
+
+/* 文本域样式 */
+.t-textarea {
+  background-color: #ffffff;
+  border-radius: 8rpx;
+  padding: 16rpx;
+}
+
+/* 步进器样式 */
+.t-stepper {
+  margin-right: 16rpx;
+}
+
+/* 日期时间选择器弹窗样式 */
+.custom-picker .t-date-time-picker__panel {
+  height: 600rpx !important; /* 增加弹窗高度 */
+}

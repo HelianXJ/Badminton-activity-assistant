@@ -1,0 +1,79 @@
+<!-- pages/detail/detail.wxml -->
+<view class="container">
+  <t-navbar title="活动详情" leftIcon="chevron-left" bind:go-back="onClickLeftIcon" />
+  
+  <t-skeleton theme="paragraph" loading="{{loading}}">
+    <view class="activity-detail" wx:if="{{activity}}">
+      <view class="activity-header">
+        <view class="activity-title">{{activity.title}}</view>
+        <t-tag class="status-tag" theme="{{getTagType(activity.status)}}" variant="light">
+          {{getStatusText(activity.status)}}
+        </t-tag>
+      </view>
+      
+      <t-cell-group>
+        <t-cell title="活动时间" leftIcon="time" note="{{activity.date}} {{activity.time}}" />
+        <t-cell title="活动地点" leftIcon="location" note="{{activity.location}}" />
+        <t-cell title="参与人数" leftIcon="user-talk" note="{{activity.currentParticipants}}/{{activity.maxParticipants}}" />
+        <t-cell title="创建者" leftIcon="user-circle">
+          <view slot="note" class="creator-info">
+            <t-avatar image="{{activity.creator.avatar}}" size="small" />
+            <text class="creator-name">{{activity.creator.name}}</text>
+          </view>
+        </t-cell>
+      </t-cell-group>
+      
+      <view class="description-section">
+        <view class="section-title">活动描述</view>
+        <view class="description-content">{{activity.description}}</view>
+      </view>
+      
+      <view class="participants-section">
+        <view class="section-title">参与者 ({{activity.participants.length}})</view>
+        <view class="participants-list">
+          <block wx:for="{{activity.participants}}" wx:key="id">
+            <view class="participant-item">
+              <t-avatar image="{{item.avatar}}" size="medium" />
+              <text class="participant-name">{{item.name}}</text>
+            </view>
+          </block>
+        </view>
+      </view>
+      
+      <view class="action-section">
+        <block wx:if="{{isCreator}}">
+          <t-button 
+            theme="danger" 
+            block 
+            bind:tap="handleCancel" 
+            disabled="{{activity.status === 'ended'}}"
+          >
+            取消活动
+          </t-button>
+        </block>
+        <block wx:else>
+          <block wx:if="{{hasJoined}}">
+            <t-button 
+              theme="danger" 
+              block 
+              bind:tap="handleQuit" 
+              disabled="{{activity.status === 'ended'}}"
+            >
+              退出活动
+            </t-button>
+          </block>
+          <block wx:else>
+            <t-button 
+              theme="primary" 
+              block 
+              bind:tap="handleJoin" 
+              disabled="{{activity.status !== 'ongoing' || activity.currentParticipants >= activity.maxParticipants}}"
+            >
+              参加活动
+            </t-button>
+          </block>
+        </block>
+      </view>
+    </view>
+  </t-skeleton>
+</view>

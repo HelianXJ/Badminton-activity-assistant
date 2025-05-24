@@ -1,0 +1,117 @@
+<!-- pages/create/create.wxml -->
+<view class="container">
+  <t-navbar title="创建活动" leftIcon="chevron-left" bind:go-back="onClickLeftIcon" />
+  
+  <view class="form-container">
+    <t-cell-group>
+      <!-- 活动标题 -->
+      <t-cell title="活动标题" required hover>
+        <t-input
+          slot="note"
+          value="{{form.title}}"
+          placeholder="请输入活动标题"
+          maxlength="50"
+          data-field="title"
+          bind:change="onInputChange"
+        />
+      </t-cell>
+      
+      <!-- 活动日期 -->
+      <t-cell title="活动日期" required hover arrow bind:tap="showDatePicker">
+        <view slot="note" class="{{form.date ? '' : 'placeholder'}}">
+          {{form.date || '请选择活动日期'}}
+        </view>
+      </t-cell>
+      
+      <!-- 活动时间 -->
+      <t-cell title="活动时间" required hover arrow bind:tap="showTimePicker">
+        <view slot="note" class="{{form.time ? '' : 'placeholder'}}">
+          {{form.time || '请选择活动时间'}}
+        </view>
+      </t-cell>
+      
+      <!-- 活动地点 -->
+      <t-cell title="活动地点" required hover>
+        <t-input
+          slot="note"
+          value="{{form.location}}"
+          placeholder="请输入活动地点"
+          maxlength="100"
+          data-field="location"
+          bind:change="onInputChange"
+        />
+      </t-cell>
+      
+      <!-- 最大参与人数 -->
+      <t-cell title="最大参与人数" required>
+        <t-stepper
+          slot="note"
+          value="{{form.maxParticipants}}"
+          min="2"
+          max="20"
+          theme="filled"
+          bind:change="onStepperChange"
+        />
+      </t-cell>
+    </t-cell-group>
+    
+    <!-- 活动描述 -->
+    <view class="description-section">
+      <view class="section-title">
+        活动描述
+        <text class="required">*</text>
+      </view>
+      <t-textarea
+        value="{{form.description}}"
+        placeholder="请输入活动描述，如活动内容、费用分担方式等"
+        maxlength="500"
+        indicator
+        disableDefaultPadding="{{true}}"
+        autosize
+        data-field="description"
+        bind:change="onInputChange"
+      />
+    </view>
+    
+    <!-- 提交按钮 -->
+    <view class="submit-section">
+      <t-button 
+        theme="primary" 
+        block 
+        loading="{{submitLoading}}" 
+        bind:tap="onSubmit"
+      >
+        创建活动
+      </t-button>
+    </view>
+  </view>
+  
+  <!-- 日期选择器 -->
+  <t-date-time-picker
+    title="选择日期"
+    visible="{{visible.date}}"
+    value="{{form.date}}"
+    mode="date"
+    start="{{minDate}}"
+    end="{{maxDate}}"
+    format="YYYY-MM-DD"
+    bind:confirm="onConfirmDate"
+    bind:close="onClose"
+    data-source="date"
+    custom-class="custom-picker"
+    height="300rpx"
+  />
+  
+  <!-- 时间选择器 -->
+  <t-date-time-picker
+    title="选择时间"
+    visible="{{visible.time}}"
+    value="{{form.time}}"
+    mode="time"
+    format="HH:mm"
+    bind:confirm="onConfirmTime"
+    bind:close="onClose"
+    data-source="time"
+    custom-class="custom-picker"
+  />
+</view>

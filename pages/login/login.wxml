@@ -1,0 +1,26 @@
+<view class="login-container">
+  <view class="logo-section">
+    <image class="logo" src="/images/logo.png" mode="aspectFit"></image>
+    <text class="app-name">羽毛球约球</text>
+  </view>
+
+  <view class="welcome-section">
+    <text class="welcome-text">欢迎使用</text>
+    <text class="sub-text">登录后即可发布和参与约球活动</text>
+  </view>
+
+  <view class="button-section">
+    <button 
+      class="login-button {{isLoading ? 'loading' : ''}}"
+      bindtap="getUserProfile"
+      disabled="{{isLoading}}"
+    >
+      <text>微信一键登录</text>
+    </button>
+  </view>
+
+  <view class="privacy-section">
+    <text class="privacy-text">登录即表示同意</text>
+    <navigator url="/pages/privacy/privacy" class="privacy-link">用户协议和隐私政策</navigator>
+  </view>
+</view>
